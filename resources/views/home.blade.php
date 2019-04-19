@@ -18,14 +18,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                    @php
                    $runs=array('1','4','6','0','9');
                    $run= array_random($runs);   
                    @endphp
                    <form id="myForm" action="/runs" method="POST">
                        @csrf
-                   <input type="text" id="fun" name="run" value={{$run}} size= "2" style="border:0" />
+                   <input type="hidden" id="fun" name="run" value={{$run}} size= "2" style="border:0" />
                 </form>
                    <button  id="nuf" value="0" onclick="myFunction(0)">0</button>
                    <button  id="nuf" value="1" onclick="myFunction(1)">1,2,3</button>
@@ -50,6 +49,7 @@
                                         type: 'error',
                                         title: 'you loss',
                                         })
+                                        setTimeout(location.reload(), 1000);
                          }                                
                           
                         
